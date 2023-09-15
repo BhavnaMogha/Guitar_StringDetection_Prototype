@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar String Detection Prototype</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #resultDisplay {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        label {
+            display: block;
+            text-align: center;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guitar String Detection Prototype</h1>
+    <div id="container">
+        <input type="file" id="fileInput" accept="audio/*">
+        <label for="fileInput">Upload Audio</label>
+        <div id="resultDisplay"></div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const resultDisplay = document.getElementById('resultDisplay');
+
+        fileInput.addEventListener('change', handleFileUpload);
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            // Simulate guitar string detection (replace with actual logic)
+            const detectedString = detectGuitarString(file);
+
+            // Display the result
+            displayResult(detectedString);
+        }
+
+        function detectGuitarString(audioFile) {
+            // Implement your audio analysis logic here
+            // You may use audio processing libraries for this task
+            // This is a placeholder, replace it with your actual detection code
+            return "E String"; // Replace with detected string
+        }
+
+        function displayResult(detectedString) {
+            resultDisplay.innerText = `Detected String: ${detectedString}`;
+        }
+    </script>
+</body>
+</html>
